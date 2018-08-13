@@ -4,9 +4,8 @@ import java.util.*;
 public class Pack {
    List <Card> cards;
 
-    public Pack(){
+    public Pack(int noOfJokers){
         cards = new ArrayList<>();
-        int index = 0;
         for (Card.Suits suits : Card.Suits.values()) {
             if(!suits.equals(Card.Suits.JOKER)){
             for (Card.Ranks ranks : Card.Ranks.values()) {
@@ -15,8 +14,10 @@ public class Pack {
             }
         }
         }
-       cards.add(new Card(Card.Suits.JOKER,Card.Ranks.ZERO)) ;
-        cards.add(new Card(Card.Suits.JOKER,Card.Ranks.ZERO)) ;
+
+        for(int i=0;i<noOfJokers;i++)
+            cards.add(new Card(Card.Suits.JOKER,Card.Ranks.ZERO)) ;
+
     }
 
 

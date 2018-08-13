@@ -2,10 +2,10 @@ import java.util.*;
 public class Deck {
     List<Pack> packs;
     static int top;
-    public Deck(int noOfPack){
+    public Deck(int noOfPack, int noOfJokers){
         packs = new ArrayList<>();
         for(int i=0; i<noOfPack; i++){
-            packs.add(new Pack());
+            packs.add(new Pack(noOfJokers));
         }
         shuffleDeck();
     }
@@ -22,6 +22,7 @@ public class Deck {
         int start = top%54;
         for(int i=start;i<start+noOfCards;i++)
             hand.add(packs.get(index).cards.get(i));
+        top +=noOfCards;
         return hand;
     }
 
